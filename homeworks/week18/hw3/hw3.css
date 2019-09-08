@@ -21,6 +21,7 @@
     margin-left: 73px;
 }
 
+
 .text{
     line-height:26px;
 }
@@ -48,4 +49,11 @@ ul{
 
 span{
     color:blue;
+}
+
+
+.checked {
+    text-decoration: line-through;
+    color: grey;
+    font-style: italic;
 }
