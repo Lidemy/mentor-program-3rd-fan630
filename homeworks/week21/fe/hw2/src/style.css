@@ -1,0 +1,101 @@
+body {
+  background: #2b2929;
+  color: white;
+  padding: 50px;
+}
+
+button:focus {
+  outline:0;
+}
+
+.board-wrapper {
+  box-sizing: border-box;
+  padding: 35px 50px;
+  padding-right: 10px;
+  width: 860px;
+  height: 860px;
+  border: 1px solid #c39d6c;
+  border-radius: 2px;
+  background: #4a4238;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.game-info ol {
+  color: white;
+}
+
+.game-info__title {
+  font-size: 30px;;
+}
+
+.board-row .square:nth-child(19) {
+  background: none;
+  border: none;
+}
+
+.board-row:nth-child(19) .square{
+  background: none;
+  border: none;
+}
+
+.square{
+  background: #c39d6d;
+  margin-top: 2px;
+  margin-right: 2px;
+  border: 1px solid #c39d6d;
+  border-radius: 2px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  float: left;
+  padding: 0;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 20px;
+  color: white;
+}
+
+.black {
+  background: #000;
+  border: 1px solid #000;
+}
+
+.white {
+  background: white;
+  border: 1px solid white;
+}
+
+.player {
+  font-size: 18px;
+  font-weight: 700;
+  color: cadetblue;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.player.success {
+  background: cadetblue;
+  border-radius: 3px;
+  color: white;
+  padding: 3px;
+} 
