@@ -2,6 +2,7 @@ const game = document.querySelector('.game')
 game.classList.add('black')
 
 const request = new XMLHttpRequest()
+// request.setRequestHeader('Content-type', 'application/vnd.twitchtv.v5+json')
 request.onload = () => {
   if (request.status >= 200 && request.status < 400) {
     const response = request.responseText
