@@ -1,0 +1,19 @@
+.col{
+    margin: 0 1px;
+    width: 25%;
+    display: inline;
+}
+
+.pic{
+    overflow:hidden;
+}
+
+.pic img{
+    border: 1px solid;
+    transform:scale(1,1);
+    transition: all 1s ease-out;
+}
+
+.pic img:hover{
+    transform:scale(1.2,1.2);
+}
