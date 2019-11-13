@@ -1,0 +1,23 @@
+ @media (max-width: 800px){
+       .wrapper{
+            width: 100%;
+            padding: 0 10px;
+     }
+}
+
+.wrapper{
+    width: 800px;
+    margin: 0 auto;
+}
+
+.input-group{
+    display: flex;
+    padding:10px;
+    border-style:double;
+    border-radius: 10px;
+}
+
+.input-group__item{
+    width:100%;
+    margin-bottom: 20px;
+}

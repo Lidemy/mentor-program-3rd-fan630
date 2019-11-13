@@ -1,0 +1,49 @@
+ @media (max-width: 800px){
+       .wrapper{
+            width: 100%;
+            padding: 10 15px;
+       }
+       .copyRight > title{
+           font-size: 8px;
+       }
+       .socialMedia{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;      
+       }
+}
+
+.footer{
+    position: fixed;
+    bottom:0;
+    z-index: 1;
+    width:100%;
+    padding:5px 10px;
+    background-color: darkgray;
+    display: flex;
+}
+
+.copyRight{
+    float:left;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.socialMedia{
+    float:right;
+}
+
+.link  a{
+    display: inline-block;
+    color:black;
+    width:28px;
+    height:28px;
+    border-radius: 14px;
+    border: 1px solid#222;
+    margin:10px;
+    text-align: center;
+    line-height: 28px;
+}
+
+

@@ -1,0 +1,46 @@
+.wrapper{
+    width: 800px;
+    margin: 0 auto;
+}
+
+.list-group{
+    display: flex;
+}
+
+.list-group-item{
+    justify-content: center;
+    align-content:center;
+    flex-shrink:1
+}
+
+.list-group > .btn{
+    padding:10px 15px;
+}
+
+.row{
+    margin-top: 20px;
+}
+
+
+.info{
+    text-align: left;
+}
+
+.info{
+    border:1px solid;
+}
+
+.article{
+    border:1px solid;
+    border-left:none;
+}
+
+.content{
+    display: block;
+    text-align: left;
+}
+
+span{
+    color:blue;
+    font-style: italic
+}
