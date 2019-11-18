@@ -1,0 +1,75 @@
+ @media (max-width: 800px){
+       .wrapper{
+            width: 100%;
+            padding: 0 10px;
+            position: relative;
+     }
+}
+
+.wrapper{
+    position: relative;
+}
+
+.container{
+    margin-top: 10px;
+}
+
+.list-group{
+    display: flex;
+}
+
+.list-group-item{
+    justify-content: center;
+    align-content:center;
+    flex-shrink:1
+}
+
+.list-group-item:hover{
+    background:rgba(0, 0, 0, 0.3)
+}
+
+.list-group > .btn{
+    padding:10px 15px;
+}
+
+.row{
+    margin-top: 20px;
+}
+
+
+.info{
+    text-align: left;
+}
+
+.article{
+    border:1px solid;
+    border-left:none;
+}
+
+.content{
+    padding: 10px;
+    width: 100%;
+}
+
+span{
+    color:blue;
+    font-style: italic
+}
+
+.createdTime{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.delete{
+    position: absolute;
+    top:-9px;
+    right:0;
+}
+
+.edit{
+    position: absolute;
+    top:-9px;
+    right:80px;
+}
