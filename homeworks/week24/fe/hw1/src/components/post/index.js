@@ -16,13 +16,13 @@ class Item extends Component {
                 <div className="row">
                     <div className="col-3 info">
                         <span>Id</span>
-                        <p>{post.id}</p>
+                        <div>{post.id}</div>
                         <span>Author</span>
-                        <p>{post.author ? <ReactMarkdown source={post.author} />: '作者不詳'}</p>
+                        <div>{post.author ? <ReactMarkdown source={post.author} />: '作者不詳'}</div>
                         <span>Title</span>
-                        <p><ReactMarkdown source={post.title} /></p>
+                        <div><ReactMarkdown source={post.title} /></div>
                         <span>Created Time</span>
-                        <p className="createdTime">{post.createdAt ? post.createdAt : '無從得知'}</p>
+                        <div className="createdTime">{post.createdAt ? post.createdAt : '無從得知'}</div>
                     </div>
                     <div className="col-9 article">
                         <div className="content">

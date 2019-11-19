@@ -20,8 +20,8 @@ const mapStateToProps = (state) =>{
 //重點就是這裡要實作改變
 const mapDispatchToProps = dispatch => {
     return {
-        sharePost: (post) => {
-            dispatch(action.ShareSinglePost(post))
+        sharePost: (title, author, body) => {
+            dispatch(action.ShareSinglePost(title, author, body))
         }
     }
 }

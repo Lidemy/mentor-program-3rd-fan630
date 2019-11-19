@@ -9,6 +9,13 @@ export const updateNavTab = (tab) => {
     }
 }
 
+export const getUnsplashPostList = () => {
+    return {
+        type: 'GET_UNSPLASH_POST_LIST',
+        payload: WebAPI.getUnsplashPosts()
+    }
+}
+
 export const getPostList = () => {
     return {
         type: 'GET_POST_LIST',
@@ -30,16 +37,16 @@ export const DeletePost = (postId) => {
     }
 }
 
-export const ShareSinglePost = (post) => {
+export const ShareSinglePost = (title, author, body) => {
     return {
         type: 'SHARE_POST',
-        payload: WebAPI.sharePost(post)
+        payload: WebAPI.sharePost(title, author, body)
     }
 }
 
-export const EditSinglePost = (postId, post) => {
+export const EditSinglePost = (postId, title, author, body) => {
     return {
         type: 'EDIT_POST',
-        payload: WebAPI.editPost(postId, post)
+        payload: WebAPI.editPost(postId, title, author, body)
     }
 }
