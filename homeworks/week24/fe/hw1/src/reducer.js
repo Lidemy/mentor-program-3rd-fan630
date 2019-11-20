@@ -2,11 +2,13 @@ import * as actionTypes from './actionTypes'
 
 const state = {
     navTab: 'Home',
+    isLoadingGetUnsplashPosts: false,
     isLoadingGetPosts: false,
     isLoadingGetPost: false,
     isLoadingDeletePost: false,
     isLoadingSharePost: false,
     isLoadingEditPost: false,
+    UnsplashPosts:[],
     posts: [],
     post: {},
 }
@@ -18,6 +20,19 @@ function reducer(globalState = state, action) {
             return {
                 ...globalState,
                 navTab: action.name
+            }
+
+        case 'GET_UNSPLASH_POST_LIST_PENDING':
+            return {
+                ...globalState,
+                isLoadingGetUnsplashPosts: true,
+            }
+
+        case 'GET_UNSPLASH_POST_LIST_FULFILLED':
+            return {
+                ...globalState,
+                isLoadingGetUnsplashPosts: false,
+                UnsplashPosts: action.payload.data
             }
 
         case 'GET_POST_LIST_PENDING':
@@ -56,7 +71,6 @@ function reducer(globalState = state, action) {
             return {
                 ...globalState,
                 isLoadingDeletePost: false,
-                //posts: state.posts.filter(post => post.id !== action.payload)
             }
 
         case 'SHARE_POST_PENDING':
@@ -69,7 +83,6 @@ function reducer(globalState = state, action) {
             return {
                 ...globalState,
                 isLoadingSharePost: false,
-                post: [...state.posts, action.payload]
             }
 
         case 'EDIT_POST_PENDING':
@@ -82,7 +95,6 @@ function reducer(globalState = state, action) {
             return {
                 ...globalState,
                 isLoadingEditPost: false,
-                post: [...state.posts, action.payload]
             }
 
         default:

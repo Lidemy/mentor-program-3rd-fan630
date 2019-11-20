@@ -16,46 +16,32 @@ const Img = ({ src, desc, link }) => {
 
 
 class Home extends Component {
-    constructor() {
-        super()
-        this.state = {
-            pictures: [],
-            isLoading: true
-        }
-    }
-
     componentDidMount() {
-        const { pictures } = this.state
-        const url = "https://api.unsplash.com/photos/" + "?client_id=aae4b30df237a7474cc5ff86eca6fd20ff9c173db667d16b8958205a6948fab4" + "&per_page=30";
-        axios.get(url)
-        //.then(res => console.log(res))
-        axios.get(url)
-            .then(res => {
-                this.setState({
-                    pictures: res.data,
-                    isLoading: false
-                })
-            })
-
+        this.props.getUnsplashPostList()
     }
 
     render() {
-        const { pictures, isLoading} = this.state
+        const { isLoadingGetUnsplashPosts, UnsplashPosts } = this.props
         const template =(
             <div className="wrapper">
-                {pictures.map(picture =>
+                {UnsplashPosts.map(UnsplashPost =>
                     <div className="row">
                         <div className="col">
-                            <Img src={picture.urls.small} desc={picture.alt_description} link={picture.links.html}/>
+                            <Img src={UnsplashPost.urls.small} desc={UnsplashPost.alt_description} link={UnsplashPost.links.html}/>
                             </div>
                     </div>
                 )}
             </div>
         )
+        const loading = (
+            <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
+        )
         return (
             <div>
                 <h1>Welcome</h1>
-                {isLoading ? <h4>Loading...</h4> : template}
+                {isLoadingGetUnsplashPosts ? loading : template}
             </div>
         )
     }

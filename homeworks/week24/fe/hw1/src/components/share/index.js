@@ -8,8 +8,6 @@ import {
 
 import FontAwesome from 'react-fontawesome';
 
-
-
 class Share extends Component {
     constructor(props) {
         super(props)
@@ -24,7 +22,6 @@ class Share extends Component {
         const { isLoadingSharePost, history } = this.props
 
         if (
-            // 前面的loading不等於現在的loading且現在沒有在loading
             prevProps.isLoadingSharePost !== isLoadingSharePost && !isLoadingSharePost
         ) {
             history.push('/post')
@@ -42,9 +39,8 @@ class Share extends Component {
 
 
     onSubmit = () => {
-        const { author, title, body } = this.state
-        const post = { author, title, body }
-        this.props.sharePost(post)
+        const { title, author, body } = this.state
+        this.props.sharePost(title, author, body)
         this.setState({
             author: '',
             title: '',
@@ -54,6 +50,7 @@ class Share extends Component {
 
     render() {
         const { author, title, body } = this.state
+        console.log(author, title, body)
         const isLoadingSharePost = this.props
 
         const style = {

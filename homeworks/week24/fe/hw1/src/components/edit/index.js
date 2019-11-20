@@ -5,36 +5,24 @@ import {
     Link
 } from "react-router-dom"
 import FontAwesome from 'react-fontawesome';
-import { editPost, getSinglePost } from '../../WebAPI'
 
 class Edit extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: '',
-            author: '',
             title: '',
-            body: ''
+            author: '',
+            body: '',
         }
     }
 
     componentDidMount() {
         const postId = this.props.match.params.id
-        getSinglePost(postId)
-            .then(resp => {
-                this.setState({
-                    id: resp.data.id,
-                    author: resp.data.author,
-                    title: resp.data.title,
-                    body: resp.data.body
-                })
-            })
-            .catch(error => console.log(error))
+        this.props.getSinglePost(postId)
     }
 
-    //這邊已經可以拿掉變更後的值. 
     handleChange = (e) => {
-        const { author, title, body } = this.state
+        const { title, author, body } = this.state
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -42,21 +30,17 @@ class Edit extends Component {
 
 
     onConfirm = () => {
-        const { author, title, body } = this.state
         const postId = this.props.match.params.id
-        const post = { author, title, body }
-        this.props.editPost(postId, post)
-
-        this.setState({
-            author: '',
-            title: '',
-            body: ''
-        })
+        const {title, author, body} = this.state
+        this.props.editPost(postId, title, author, body)
     }
 
-    // 這樣做速度會快於api, race condition....
     componentDidUpdate(prevProps) {
-        const { isLoadingEditPost, history } = this.props
+        const { post, isLoadingEditPost, history } = this.props
+        if (post !== prevProps.post){ 
+            this.handlePropsToState();
+        }
+
         if (
             isLoadingEditPost !== prevProps.isLoadingEditPost && !isLoadingEditPost
         ) {
@@ -64,10 +48,19 @@ class Edit extends Component {
         } 
     }
 
+    handlePropsToState=() =>{
+        const {post} = this.props
+        this.setState({
+            title: post.title,
+            author: post.author,
+            body: post.body
+        })
+    }
+
 
 
     render() {
-        const { author, title, body } = this.state
+        const { title, author, body } = this.state
         const style = {
             height: '300px'
         }
